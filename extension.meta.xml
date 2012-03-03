@@ -3,7 +3,7 @@
 	<name>Datasource Field</name>
 	<description>Relate datasources to stuff like widgets etc. To make sure you never forget to attach your datasources to the related Symphony Pages. </description>
 	<repo type="github">https://github.com/jonmifsud/datasourcefield</repo>
-	<url type="discuss">http://symphony-cms.com/discuss/thread/267/</url>
+	<url type="discuss">http://symphony-cms.com/discuss/thread/85139/</url>
 	<types>
 		<type>Field Types</type>
 	</types>
