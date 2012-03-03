@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="datasourcefield" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Datasource Field</name>
+	<description>Relate datasources to stuff like widgets etc. To make sure you never forget to attach your datasources to the related Symphony Pages. </description>
+	<repo type="github">https://github.com/jonmifsud/datasourcefield</repo>
+	<url type="discuss">http://symphony-cms.com/discuss/thread/267/</url>
+	<types>
+		<type>Field Types</type>
+	</types>
+	<authors>
+		<author>
+			<name github="jonmifsud" symphony="gunglien" twitter="jonmifsud">Jonathan Mifsud</name>
+			<email>info@jonmifsud.com</email>
+			<website>http://jonmifsud.com</email>
+		</author>
+	</authors>
+	<releases>
+		<release version="0.1" date="2012-02-03" min="2.2" max="2.2.x" />
+	</releases>
+	<dependencies>
+		<dependency version="1.4.1">pagesfield</dependency>
+	</dependencies>
+</extension>
