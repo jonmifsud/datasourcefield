@@ -1,4 +1,4 @@
-# Page Select Box Field
+# Datasource Select Box Field
 
 - Version: 0.1
 - Author: Jonathan Mifsud (info@jonmifsud.com)
