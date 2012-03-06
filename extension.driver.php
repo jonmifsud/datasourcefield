@@ -6,7 +6,7 @@
 			return array(
 				'name' => 'Field: Datasource Select Box',
 				'version' => '0.1',
-				'release-date' => '2011-12-02',
+				'release-date' => '2012-03-03',
 				'author' => array(
 					'name' => 'Jonathan Mifsud',
 					'website' => 'http://www.jonmifsud.com',
@@ -76,7 +76,6 @@
 			if (count($relatedSections) == 0) return;
 			
 			//check if field is in related sections.
-			// $datasourcefields = Symphony::Database()->fetch("SELECT `id`,`parent_section` FROM `tbl_fields` WHERE `type` = 'datasource'");
 			$fieldManager = new FieldManager(Symphony::Engine());
 			$fields = $fieldManager->fetch(NULL, NULL, 'ASC', 'sortorder', 'datasource');
 			
@@ -115,13 +114,6 @@
 			$mergedDatasources = array_merge ( $pagedatasources, $relatedDatasources );
 			$newDatasources = array_unique($mergedDatasources);
 			
-			// var_dump($pagedatasources);
-			// echo('<br/>');
-			// var_dump($relatedDatasources);
-			// echo('<br/>');
-			// var_dump($newDatasources);die;
-			// $datasourcefields = Symphony::Database()->fetch("SELECT `id`,`parent_section` FROM `tbl_fields` WHERE `type` = 'datasource'");
-			
 			// create the fields to be updated
 			$fields = array('data_sources' => @implode(',', $newDatasources));
 						
@@ -147,9 +139,6 @@
 		}
 
 		public function update($previousVersion) {
-			// if(version_compare($previousVersion, '1.3', '<')){
-			
-			// }
 			return true;
 		}
 

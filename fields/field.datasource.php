@@ -92,12 +92,9 @@
 		function displayPublishPanel(&$wrapper, $data=NULL, $flagWithError=NULL, $fieldnamePrefix=NULL, $fieldnamePostfix=NULL){
 			
 			$states = $this->getToggleStates();
-
-			// var_dump($states);
-			// var_dump($data);die;
 			
 			if(!is_array($data['handle'])) $data['handle'] = array($data['handle']);
-			// if(!is_array($data['page_id'])) $data['page_id'] = array($data['page_id']);
+			
 			if(!is_array($data['title'])) $data['title'] = array($data['title']);
 
 			$options = array();
@@ -122,7 +119,6 @@
 
 		function prepareTableValue($data, XMLElement $link=NULL){
 			
-			// var_dump($data['title']);die;
 			if (is_array( $data['title']))
 				$value= implode ( ", " , $data['title'] );
 			else $value= $data['title'];
@@ -145,43 +141,11 @@
 			foreach($data as $ds){
 				$datasource = $datasources[$ds];
 
-				// var_dump($ds);
-				// var_dump($datasource);die;
 				$result['handle'][] = $datasource['handle'];
 				$result['title'][] = $datasource['name'];
-				// $result['page_id'][] = $page_id;
 			}
 
 			return $result;
-		}
-
-		function buildDSRetrievalSQL($data, &$joins, &$where, $andOperation=false){
-/*
-			$field_id = $this->get('id');
-
-			if(self::isFilterRegex($data[0])):
-
-				$pattern = str_replace('regexp:', '', $data[0]);
-				$joins .= " LEFT JOIN `tbl_entries_data_$field_id` AS `t$field_id` ON (`e`.`id` = `t$field_id`.entry_id) ";
-				$where .= " AND (`t$field_id`.title REGEXP '$pattern' OR `t$field_id`.handle REGEXP '$pattern') ";
-
-
-			elseif($andOperation):
-
-				foreach($data as $key => $bit){
-					$joins .= " LEFT JOIN `tbl_entries_data_$field_id` AS `t$field_id$key` ON (`e`.`id` = `t$field_id$key`.entry_id) ";
-					$where .= " AND (`t$field_id$key`.page_id = '$bit' OR `t$field_id$key`.handle = '$bit' OR `t$field_id$key`.title = '$bit') ";
-				}
-
-			else:
-
-				$joins .= " LEFT JOIN `tbl_entries_data_$field_id` AS `t$field_id` ON (`e`.`id` = `t$field_id`.entry_id) ";
-				$where .= " AND (`t$field_id`.page_id IN ('".@implode("', '", $data)."') OR `t$field_id`.handle IN ('".@implode("', '", $data)."') OR `t$field_id`.title IN ('".@implode("', '", $data)."')) ";
-
-			endif;
-*/
-			return true;
-
 		}
 
 		function commit(){
@@ -189,7 +153,6 @@
 			if(!parent::commit()) return false;
 
 			$id = $this->get('id');
-			// $page_types = $this->get('page_types'); // TODO safe
 
 			if($id === false) return false;
 
@@ -197,7 +160,6 @@
 
 			$fields['field_id'] = $id;
 			$fields['allow_multiple_selection'] = ($this->get('allow_multiple_selection') ? $this->get('allow_multiple_selection') : 'no');
-			// $fields['page_types'] = $page_types;
 
 			Symphony::Database()->query("DELETE FROM `tbl_fields_".$this->handle()."` WHERE `field_id` = '$id' LIMIT 1");
 
@@ -259,12 +221,6 @@
 			return $label;
 		}
 
-		public function buildSortingSQL(&$joins, &$where, &$sort, $order='ASC', $useIDFieldForSorting=false){
-			// $sort_field = (!$useIDFieldForSorting ? 'ed' : 't' . $this->get('id'));
-
-			// $joins .= "INNER JOIN `tbl_entries_data_".$this->get('id')."` AS `$sort_field` ON (`e`.`id` = `$sort_field`.`entry_id`) ";
-			// $sort .= 'ORDER BY ' . (strtolower($order) == 'random' ? 'RAND()' : "`$sort_field`.`handle` $order");
-		}
 		
 		/*
 		 * No Elements to be included by this field as it is for selecting DSs
