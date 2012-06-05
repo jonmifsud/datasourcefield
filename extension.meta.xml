@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension id="datasourcefield" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
-	<name>Datasource Field</name>
+	<name>Field: DataSource Select Box</name>
 	<description>Relate datasources to stuff like widgets etc. To make sure you never forget to attach your datasources to the related Symphony Pages. </description>
 	<repo type="github">https://github.com/jonmifsud/datasourcefield</repo>
 	<url type="discuss">http://symphony-cms.com/discuss/thread/85139/</url>
@@ -15,7 +15,14 @@
 		</author>
 	</authors>
 	<releases>
-		<release version="0.1" date="2012-03-03" min="2.2" max="2.2.x" />
+		<release version="0.2" date="2012-06-05" min="2.3" max="2.3">
+			* Basic update for Symphony 2.3
+			* Breaks compatibility with 2.5.x
+			* Requires further work for support of future versions
+		</release>
+		<release version="0.1" date="2012-03-03" min="2.2" max="2.2.x">
+			* Initial Release for Symphony 2.2.x
+		</release>
 	</releases>
 	<dependencies>
 		<dependency version="1.4.1">pagesfield</dependency>

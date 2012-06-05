@@ -1,9 +1,9 @@
 # Datasource Select Box Field
 
-- Version: 0.1
+- Version: 0.2
 - Author: Jonathan Mifsud (info@jonmifsud.com)
-- Build Date: 3nd March 2012
-- Requirements: Symphony 2.2+
+- Build Date: 5th June 2012
+- Requirements: Symphony 2.3+
 - Dependency: Pages Field
 
 

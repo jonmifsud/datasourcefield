@@ -1,19 +1,6 @@
 <?php
 
 	Class extension_datasourcefield extends Extension{
-
-		public function about(){
-			return array(
-				'name' => 'Field: Datasource Select Box',
-				'version' => '0.1',
-				'release-date' => '2012-03-03',
-				'author' => array(
-					'name' => 'Jonathan Mifsud',
-					'website' => 'http://www.jonmifsud.com',
-					'email' => 'info@jonmifsud.com'
-				)
-			);
-		}
 		
 		// Set the delegates:
 		public function getSubscribedDelegates()
@@ -76,17 +63,17 @@
 			if (count($relatedSections) == 0) return;
 			
 			//check if field is in related sections.
-			$fieldManager = new FieldManager(Symphony::Engine());
-			$fields = $fieldManager->fetch(NULL, NULL, 'ASC', 'sortorder', 'datasource');
+			// $fieldManager = new FieldManager(Symphony::Engine());
+			$fields = FieldManager::fetch(NULL, NULL, 'ASC', 'sortorder', 'datasource');
 			
 			//if no datasource fields then we do not have anything to update
 			if (count($fields) == 0) return;
-			$datasroucefield_id = $fields[0]->get('id');
+			$datasroucefield_id = current($fields)->get('id');
 			
 			//check that this DS has also a pagefield 
 			$pagesField = $context['section']->fetchFields('pages');
 			if (count($pagesField) == 0) return;
-			$pagesFieldID = $pagesField[0]->get('id');
+			$pagesFieldID = current($pagesField)->get('id');
 			
 			//obtain link field info (subsection manager or selectbox link
 			$subsectionField = $context['section']->fetchFields('subsectionmanager');
@@ -95,8 +82,8 @@
 			if (count($subsectionField) == 0 && count($selectboxField) == 0 ) return;
 			//if selectbox empty then use subsection
 			if (count($selectboxField) == 0 )
-				$linkFieldID = $subsectionField[0]->get('id');
-			else $linkFieldID = $selectboxField[0]->get('id');
+				$linkFieldID = current($subsectionField)->get('id');
+			else $linkFieldID = current($selectboxField)->get('id');
 			
 			//get subsection entry data
 			$subsectionData = $context['entry']->getData($linkFieldID);

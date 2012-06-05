@@ -6,8 +6,8 @@
 
 	Class fieldDatasource extends Field{
 
-		function __construct(&$parent){
-			parent::__construct($parent);
+		function __construct(){
+			parent::__construct();
 			$this->_name = 'Datasource Select Box';
 			$this->_required = true;
 
@@ -197,10 +197,9 @@
 				  `handle` varchar(255) default NULL,
 				  PRIMARY KEY  (`id`),
 				  KEY `entry_id` (`entry_id`),
-				  KEY `handle` (`handle`),
-				  KEY `page_id` (`page_id`)
+				  KEY `handle` (`handle`)
 				) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;"
-			);
+			);//,				  KEY `page_id` (`page_id`)
 		}
 
 		public function getExampleFormMarkup(){
